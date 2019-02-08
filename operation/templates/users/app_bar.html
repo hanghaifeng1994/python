@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<title>DevOpsV1平台</title>
+		<!--导入jquery-->
+		<script type="text/javascript" src="static/users/js/jquery-3.3.1.js" ></script>
+		<!--导入自定义js文件-->
+		<script type="text/javascript" src="static/users/js/navMenu.js" ></script>
+		<!--导入自定义css-->
+		<link rel="stylesheet" href="static/users/css/navMenu.css" />
+		<!--导入Font Awesome图标字库css文件-->
+		<link rel="stylesheet" href="static/users/css/font-awesome.css" />
+		<script src="../../node_modules/axios/dist/axios.js"></script>
+		<script src="../../node_modules/vue/dist/vue.js"></script>
+		<style>
+			.navMenuBox{
+				width: 200px;
+				height: 500px;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="row">
+		<div class="col-md-4">
+		<!--包裹层-->
+		<div class="navMenuBox">
+			<!--一级菜单-->
+			<ul class="navMenu">
+				<!--菜单项-->
+				<li>
+					<!--arrow类给具有下级菜单项添加箭头图标-->
+					<a href="#" class="arrow">主页</a>
+					<!--子菜单-->
+					<ul class="subMenu">
+						<li><a id="1" href="/logout">退出登陆</a></li>
+						<li><a id="2" href="/user_center">个人中心</a></li>
+						<li><a id="3" href="/edit_profile">修改个人信息</a></li>
+						<li><a id="4" href="/change_password">修改密码</a></li>
+					</ul>
+				</li>
+				<li>
+                    <a href="#" class="arrow">网路安全</a>
+                    <!--子菜单-->
+                    <ul class="subMenu">
+						<li><a id="5" href="/security/user_add">新增用户</a></li>
+						<li><a id="6" href="/security/group_add">将刚刚创建得用户添加到用户组</a></li>
+						<li><a id="7" href="/security/add_group">创建用户组</a></li>
+						<li><a id="8" href="/security/user_to_group">用户添加到用户组</a></li>
+						<li><a id="9" href="/security/permission">用户添加到用户组</a></li>
+						<li><a id="10" href="/security/virus_scanning">服务器病毒扫描</a></li>
+					</ul>
+                </li>
+				<li>
+					<a href="#" class="arrow">系统管理</a>
+					<!--子菜单-->
+					<ul class="subMenu">
+						<li><a id="11" href="/administration/systeminfo">查询指定服务器的CPU,内存,磁盘,网络信息</a></li>
+						<li><a id="12" href="/administration/othersys">获取系统用户的其他信息</a></li>
+						<li><a id="13" href="/administration/delpid">杀死指定的进程</a></li>
+					</ul>
+				</li>
+                <li>
+                    <a href="#">应用管理</a>
+					<!--子菜单-->
+					<ul class="subMenu">
+						<li><a id="14" href="/appManager/appControl">对应用状态进行监控</a></li>
+					</ul>
+                </li>
+                <li>
+                    <a href="#">数据库管理</a>
+					<!--子菜单-->
+					<ul class="subMenu">
+						<li><a id="15" href="/DBA/orlvnc">安装VNC环境准备</a></li>
+						<li><a id="16" href="/DBA/datato">自动部署oracle数据库安装环境</a></li>
+						<li><a id="17" href="/DBA/outooracle">迁移oracle数据库中的数据</a></li>
+					</ul>
+                </li>
+                <li>
+                    <a href="#">自动测试</a>
+                </li>
+                <li>
+                    <a href="#">自动部署</a>
+                </li>
+                <li>
+                    <a href="#">网站业务</a>
+					<ul class="subMenu">
+						<li><a id="18" href="/business/iplen">输出指定网段的所有IP清单</a></li>
+						<li><a id="19" href="/business/ipinput">输入的IP或子网返回网络返回相关信息</a></li>
+						<li><a id="20" href="/business/pyweb">探测Web服务质量</a></li>
+					</ul>
+                </li>
+			</ul>
+			</ul>
+		</div>
+		</div>
+		<div class="col-md-8">
+			<iframe name="myiframe" id="myrame" src=""></iframe>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			$("#1").onclick(function(){
+				var href = $("#1").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#2").onclick(function(){
+				var href = $("#2").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#3").onclick(function(){
+				var href = $("#3").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#4").onclick(function(){
+				var href = $("#4").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#5").onclick(function(){
+				var href = $("#5").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#6").onclick(function(){
+				var href = $("#6").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#7").onclick(function(){
+				var href = $("#7").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#8").onclick(function(){
+				var href = $("#8").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#9").onclick(function(){
+				var href = $("#9").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#10").onclick(function(){
+				var href = $("#10").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#11").onclick(function(){
+				var href = $("#11").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#12").onclick(function(){
+				var href = $("#12").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#13").onclick(function(){
+				var href = $("#13").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#14").onclick(function(){
+				var href = $("#14").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#15").onclick(function(){
+				var href = $("#15").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#16").onclick(function(){
+				var href = $("#16").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#17").onclick(function(){
+				var href = $("#17").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#18").onclick(function(){
+				var href = $("#18").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#19").onclick(function(){
+				var href = $("#19").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+			$("#20").onclick(function(){
+				var href = $("#20").attr('href');
+				$(".myiframe").attr("src",href);
+			})
+		});
+	</script>
+	</body>
+</html>

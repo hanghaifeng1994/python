@@ -1,0 +1,73 @@
+
+{% extends 'security/base.html' %}
+
+{% block main %}
+<script src="../../node_modules/axios/dist/axios.js"></script>
+<script src="../../node_modules/vue/dist/vue.js"></script>
+<div class="king-block king-block-bordered">
+    <div class="king-block-header king-gray-light">
+        <ul class="king-block-options">
+            <li>
+                <button type="button"><i class="fa fa-cog"></i></button>
+            </li>
+        </ul>
+        <h3 class="king-block-title">IP或子网返回网络，掩码，广播，反向解析，子网数，IP类型等信息</h3>
+    </div>
+    <div class="king-block-content">
+        <form action="/business/ipinput" class="form-horizontal" method="POST">
+            <div class="form-group">
+                <label for="inputCount3" class="col-sm-3 control-label">IP/net：</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="ipnet" id="inputCount3" placeholder="输入要查询的IP/net">
+                </div>
+                <span class="text-danger mt5 fl">*</span>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-7 col-sm-offset-3">
+                    <button class="king-btn king-success mr10" @click="show">提交</button>
+                    <input type="reset" class="king-btn king-default" value="取消">
+                </div>
+            </div>
+            <div id="app">
+                <p v-if="msg.contant1">
+                    {{msg.contant1.net}}
+                    {{msg.contant1.mask}}
+                    {{msg.contant1.cast}}
+                    {{msg.contant1.names}}
+                    {{msg.contant1.len}}
+                </p>
+                <P v-if="msg.contant2">
+                    {{msg.contant2.enames}}
+                    {{msg.contant2.ehex}}
+                    {{msg.contant2.ebin}}
+                    {{mag.contant2.etype}}
+                </P>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            msg:''
+        },
+        methods:{
+            show:function(){
+                axios.post('/business/ipinput',{
+                    params:{
+                        userId:"101"
+                    },
+                    headers:{
+                        taken:"jack"
+                    }
+                }).then(function(res){
+                    this.msg = res.data;
+                }).catch(function(error){
+                    alert('出错了'+error)
+                });
+            }
+        }
+    })
+</script>
+{% endblock main %}

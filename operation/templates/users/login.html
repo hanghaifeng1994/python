@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+</head>
+<style type="text/css">
+    .gig1{
+        position: absolute;
+        left:50%;
+        top:50%;
+        width:300px;
+        height:100px;
+        transform: translateX(-50%);
+    }
+</style>
+<body background="static/users/img/{T{S$[XQRH3RX3NL$1TU@(D.png">
+        <div class="gig1">
+            <form action="/login" method='POST'>
+                {% csrf_token %}
+                <table style="" >
+                    <tr>
+                        <th>账号：</th>
+                        <td><input id="username" name="username" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <th>密码：</th>
+                        <td><input id="password" name="password" type="password"/></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit">登陆</button></td>
+                        <td><a href="/">返回主页</a></td>
+                    </tr>
+                </table>
+            </form>
+            <p style="color:green;font-size:50px">{{ error }}</p> 
+        </div>
+</body>
+</html>

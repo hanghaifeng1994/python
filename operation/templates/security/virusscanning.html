@@ -1,0 +1,71 @@
+
+{% extends 'security/base.html' %}
+
+{% block main %}
+<div class="king-block king-block-bordered">
+    <div class="king-block-header king-gray-light">
+        <ul class="king-block-options">
+            <li>
+                <button type="button"><i class="fa fa-cog"></i></button>
+            </li>
+        </ul>
+        <h3 class="king-block-title">对服务器进行病毒扫面</h3>
+    </div>
+    <div class="king-block-content">
+        <form action="/security/virus_scanning" class="form-horizontal" method="POST">
+            <div class="form-group">
+                <label for="inputCount3" class="col-sm-3 control-label">服务器IP：</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="IPs" id="inputCount3" placeholder="输入要扫面的服务器IP,多个IP用英文”,”隔开">
+                </div>
+                <span class="text-danger mt5 fl">*</span>
+            </div>
+            <div class="form-group">
+                <label for="inputCount3" class="col-sm-3 control-label">扫描路径：</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="path" id="inputCount2" placeholder="输入要扫描的路径">
+                </div>
+                <span class="text-danger mt5 fl">*</span>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3">扫描模式：</label>
+                <div class="col-sm-7">
+                    <div class="radio">
+                        <label class="mr10">
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="multiscan_file" >multiscan_file
+                        </label>
+                        <label>
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="contscan_file">contscan_file
+                        </label>
+                        <label>
+                            <input type="radio" name="optionsRadios" id="optionsRadios3" value="scan_file">scan_file
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-7 col-sm-offset-3">
+                    <button class="king-btn king-success mr10" >提交</button>
+                    <input type="reset" class="king-btn king-default" value="取消">
+                </div>
+            </div>
+        </form>
+        <script>
+        </script>
+        <p>{{ lis }}</p>
+    </div>
+    <p>要提前在要扫描的服务器上，安装客户端（病毒扫描源）clamav：</p>
+    <p># yum install -y clamav clamd clamav- update #安装 clamavp 相关 程序 包</p>
+    <p># chkconfig --levels 235 clamd on #添加扫描守护进程 clamd 系统服务</p>
+    <P># /usr/ bin/ freshclam #更新病毒库，建议配置到 crontab 中定期更新</P>
+    <P># setenforce 0 #关闭 SELinux，避免远程扫描时提示无权限的问题</P>
+    <P># 更新 守护 进程监听 IP 配置文件，根据不同环境自行修改监听的IP，“ 0. 0. 0. 0” 为监听所有主机IP</P>
+    <P># sed -i -e '/^TCPAddr/{ s/ 127. 0. 0. 1/ 0. 0. 0. 0/； }' /etc/clamd.conf</P>
+    <P># /etc/ init. d/ clamd start #启动扫描守护进程</P>
+    <p>以实际环境为准</p>
+
+
+
+
+</div>
+{% endblock main %}

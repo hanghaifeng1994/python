@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body background="static/users/img/dc54564e9258d10942372f86d058ccbf6c814d2a.jpg">
+    <h1>注册</h1>
+        <form action="/register" method="POST">
+            {% csrf_token %}
+            <table>
+            <tr>
+                <td><input type='hidden' name='csrfmiddlewaretoken' value='zioiAHU2zYS2zNUyGU7IYnlVCxmSaYihv6XXv6rV0YkYarqRDPN9zaHVrtgyqqC9' /></td>
+            </tr>
+            <tr>
+                <th>用户名:</th>
+                <td><input type="text" name="username" maxlength="150" autofocus required id="id_username" /> <span class="helptext">必填。150个字符或者更少。包含字母，数字和仅有的@/./+/-/_符号。</span></p></td>
+                {{ form.errors.username }}
+            </tr>
+            <tr>
+                <th>密码:</th>
+                <td><input type="password" name="password1" required id="id_password1" /> <span class="helptext"><ul><li>你的密码不能与其他个人信息太相似。</li><li>你的密码必须包含至少 8 个字符。</li><li>你的密码不能是大家都爱用的常见密码。</li><li>你的密码不能全部为数字。</li></ul></span></p></td>
+                {{ form.errors.password1 }}
+            </tr>
+            <tr>
+                <th>密码确认:</th>
+                <td><input type="password" name="password2" required id="id_password2" /> <span class="helptext">为了校验，请输入与上面相同的密码。</span></p></td>
+                {{ form.errors.password2 }}
+            </tr>
+            <tr>
+                <th>电子邮件地址:</th>
+                <td><input type="email" name="email" maxlength="254" id="id_email" /></p></td>
+                {{ form.errors.email }}
+            </tr>
+            <tr>
+                <th>昵称：</th>
+                <td><input type="text" name="nickname" maxlength="50" id="id_nickname" /></p></td>
+                {{ form.errors.nickname }}
+            </tr>
+            <tr>
+                <th>生日：</th>
+                <td><input type="date" name="birthday" id="id_birthday" /></p></td>
+                {{ form.errors.birthday }}
+            </tr>
+            <tr>
+                <td><button type="submit">注册</button></td>
+                <td><a href="/">返回主页</a></td>
+            </tr>
+            </table>
+        </form>
+</body>
+</html>

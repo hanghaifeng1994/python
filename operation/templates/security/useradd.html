@@ -1,0 +1,73 @@
+
+{% extends 'security/base.html' %}
+
+{% block main %}
+<div class="king-block king-block-bordered">
+    <div class="king-block-header king-gray-light">
+        <ul class="king-block-options">
+            <li>
+                <button type="button"><i class="fa fa-cog"></i></button>
+            </li>
+        </ul>
+        <h3 class="king-block-title">添加用户</h3>
+    </div>
+    <div class="king-block-content">
+        <form action="/security/system_right" class="form-horizontal" method="POST">
+            <div class="form-group">
+                <label for="inputCount3" class="col-sm-3 control-label">服务器IP：</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="IP" id="inputCount3" placeholder="输入远程服务器的IP">
+                </div>
+                <span class="text-danger mt5 fl">*</span>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">服务器用户名：</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="user" id="inputEmail3" placeholder="输入远程服务器的用户名 ，默认为root">
+                </div>
+                <span class="text-danger mt5 fl">*</span>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">用户密码：</label>
+                <div class="col-sm-7">
+                    <input type="password" class="form-control" name="passwd" id="inputPassword3" placeholder="">
+                </div>
+                <span class="text-danger mt5 fl">*</span>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">设置新用户名：</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="newuser" id="inputPassword2" placeholder="输入你要为服务器设置的用户名">
+                </div>
+                <span class="text-danger mt5 fl">*</span>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">新用户名密码</label>
+                <div class="col-sm-7">
+                    <input type="password" class="form-control" name="newpasswd1" id="inputPassword1" placeholder="输入你要为新用户设置的密码">
+                </div>
+                <span class="text-danger mt5 fl">*</span>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">确认新用户密码：</label>
+                <div class="col-sm-7">
+                    <input type="password" class="form-control" name="newpasswd2" id="inputPassword0" placeholder="">
+                </div>
+                <span class="text-danger mt5 fl">*</span>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-7 col-sm-offset-3">
+                    <button class="king-btn king-success mr10">提交</button>
+                    <input type="reset" class="king-btn king-default" value="取消">
+                </div>
+            </div>
+            <p >{{ e }}</p>
+            <p>{{ stdin }}</p>
+            <p>{{ stdont }}</p>
+            <p>{{ stderr }}</p>
+            <p>{{ u }}</p>
+        </form>
+    </div>
+</div>
+{% endblock main %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑个人信息</title>
+</head>
+<body background="static/users/img/T_T{QJ(}C@EY_$36`(XVT3N.png">
+    <form action="/edit_profile" method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <input type='hidden' name='csrfmiddlewaretoken' value='csfl0bgnKRvykNKcND4v0yFv8iaC8OkUURsXKz7O5573hAKfGA3XqE8A5jdJWffC' />
+            </tr>
+            <tr>
+                <th>用户名:</th>
+                <td><input type="text" name="username" value="admin" maxlength="150" required id="id_username" /> <span class="helptext">必填。150个字符或者更少。包含字母，数字和仅有的@/./+/-/_符号。</span></td>
+            </tr>
+            <tr>
+                <th>电子邮件地址:</th>
+                <td><input type="email" name="email" value="123@qq.com" maxlength="254" id="id_email" /></td>
+            </tr>
+            <tr>
+                <th>昵称：</th>
+                <td><input type="text" name="nickname" maxlength="50" id="id_nickname" value="{{ user.CommonerUser.nickname }}"/></td>
+            </tr>
+            <tr>
+                <th>生日：</th><p>
+                <td><input type="Date" name="birthday" id="id_birthday" value=""/></td>
+            </tr>
+        </table>
+        <button type="submit">提交</button>
+        <a href="/user_center">回到个人中心</a>
+        <a href="/logout">退出</a>
+    </form>
+</body>
+</html>

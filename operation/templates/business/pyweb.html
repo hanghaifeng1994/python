@@ -1,0 +1,69 @@
+
+{% extends 'security/base.html' %}
+
+{% block main %}
+<script src="../../node_modules/axios/dist/axios.js"></script>
+<script src="../../node_modules/vue/dist/vue.js"></script>
+<div class="king-block king-block-bordered">
+    <div class="king-block-header king-gray-light">
+        <ul class="king-block-options">
+            <li>
+                <button type="button"><i class="fa fa-cog"></i></button>
+            </li>
+        </ul>
+        <h3 class="king-block-title"></h3>
+    </div>
+    <div class="king-block-content">
+        <form action="/business/pyweb" class="form-horizontal" method="POST">
+            <div class="form-group">
+                <label for="inputCount3" class="col-sm-3 control-label">url:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="url" id="inputCount3" placeholder="输入要测试的url">
+                </div>
+                <span class="text-danger mt5 fl">*</span>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-7 col-sm-offset-3">
+                    <button class="king-btn king-success mr10" @click="show">提交</button>
+                    <input type="reset" class="king-btn king-default" value="取消">
+                </div>
+            </div>
+        </form>
+    </div>
+                <div id="app">
+                <p>获取DNS解析时间:{{msg.contant.NAMEELOOKKUP_TIME}}</p>
+                <p>获取建立连接时间:{{msg.contant.CONNECT_TIME}}</p>
+                <p>获取从建立连接到准备传输所消耗的时间:{{msg.contant.PRETRANSFER_TIME}}</p>
+                <p>获取从建立连接到传输开始消耗的时间:{{msg.contant.STARTTRANSFER_TIME}}</p>
+                <p>获取传输的总时间:{{msg.contant.TOTAL_TIME}}</p>
+                <p>获取HTTP状态码:{{msg.contant.HTTP_CODE}}</p>
+                <p>获取下载数据包大小:{{msg.contant.SIZE_DOWNLOAD}}</p>
+                <p>获取HTTP头部大小:{{msg.contant.HEADER_SIZE}}</p>
+                <p>获取平均下载速度:{{msg.contant.SPEED_DOWNLOAD}}</p>
+            </div>
+</div>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            msg:''
+        },
+        methods:{
+            show:function(){
+                axios.post('/business/pyweb',{
+                    params:{
+                        userId:"101"
+                    },
+                    headers:{
+                        taken:"jack"
+                    },
+                }).then(function(res){
+                    this.msg = res.data;
+                }).catch(function(error){
+                   alert("出错了"+error)
+                });
+            }
+        }
+    })
+</script>
+{% endblock main %}
